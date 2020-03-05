@@ -44,8 +44,10 @@ foreach ($calendar_urls as $name => $url) {
 
 		// Add to the array index
 		array_push($result_array[$target], array(
-			"time" => date("g:i a", strtotime($event->dtstart)),
+			"time" => date("H:i", strtotime($event->dtstart)),
 			"date" => date("l, F j", strtotime($event->dtstart)),
+                        "etime" => date("H:i", strtotime($event->dtend)),
+                        "edate" => date("l, F j", strtotime($event->dtend)),
 			"timestamp" => $event->dtstart,
 			"desc" => stripslashes($event->description),
 			"title" => stripslashes($event->summary),
@@ -113,7 +115,7 @@ foreach ($result_array as $events) {
 
 		// Display the event
 		echo "\t\t<div class='events-inner $class'>\n" .
-			"\t\t\t<div class='time'>" . $event['time'] . "</div>\n" .
+                        "\t\t\t<div class='time'>" . $event['time'] ." - " . $event['etime'] . "</div>\n" .
 			"\t\t\t<div class='event'>" . $event['title'] . "</div>\n" .
 			"\t\t</div>\n";
 		}
