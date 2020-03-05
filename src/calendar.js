@@ -89,15 +89,6 @@ function updateClock() {
 
 	// Select a suffix for the date
 	var sup = "";
-	if (curr_date == 1 || curr_date == 21 || curr_date == 31) {
-		sup = "st";
-	} else if (curr_date == 2 || curr_date == 22) {
-		sup = "nd";
-	} else if (curr_date == 3 || curr_date == 23) {
-		sup = "rd";
-	} else {
-		sup = "th";
-	}
 
 	// Set options for date display
 	var date_options = {
@@ -110,8 +101,8 @@ function updateClock() {
 	};
 
 	// Generate the date string and add it to the document
-	var datestring = d.toLocaleDateString("en-US", date_options) + sup + "<span style=\"float:right;\">" +
-	d.toLocaleTimeString("en-US", time_options) + "</span>";
+	var datestring = d.toLocaleDateString("de-DE", date_options) + sup + "<span style=\"float:right;\">" +
+	d.toLocaleTimeString("de-DE", time_options) + "</span>";
 	document.getElementById("clock").innerHTML=datestring;
 
 	// Repeat every second
