@@ -114,8 +114,13 @@ foreach ($result_array as $events) {
 		}
 
 		// Display the event
+		$eventtime = "whole day";
+		if ($event['time'] != $event['etime']){
+			$eventtime = $event['time'] ." - " . $event['etime'];
+		}
+			
 		echo "\t\t<div class='events-inner $class'>\n" .
-                        "\t\t\t<div class='time'>" . $event['time'] ." - " . $event['etime'] . "</div>\n" .
+                        "\t\t\t<div class='time'>" . $eventtime . "</div>\n" .
 			"\t\t\t<div class='event'>" . $event['title'] . "</div>\n" .
 			"\t\t</div>\n";
 		}
