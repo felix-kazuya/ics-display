@@ -31,6 +31,10 @@ foreach ($calendar_urls as $name => $url) {
 	foreach ($events as $event) {
 		// Set array index as date
 		$target = date("Ymd", strtotime($event->dtstart));
+		$startDate = date("l, F j", strtotime($event->dtstart));
+		$startTime = date("H:i", strtotime($event->dtstart));
+		$endDate = date("l, F j", strtotime($event->dtend));
+		$endTime = date("H:i", strtotime($event->dtend));
 
 		// If the item is marked completed, ignore it
 		if (!empty($skip_string) && strpos($event->description, $skip_string) !== false) {
@@ -50,7 +54,7 @@ foreach ($calendar_urls as $name => $url) {
                         "edate" => date("l, F j", strtotime($event->dtend)),
 			"timestamp" => $event->dtstart,
 			"desc" => stripslashes($event->description),
-			"title" => stripslashes($event->summary),
+				"title" => $startDate. "bis" . $endDate . " " . stripslashes($event->summary),
 			"calendar" => $name
 		));
 	}
