@@ -78,7 +78,7 @@ function ajaxcall(buf) {
 	}
 
 	// Send request
-	xmlhttp.open("GET","schedule.php?d=" + decache, true);
+	xmlhttp.open("GET","schedule-me.php?d=" + decache, true);
 	xmlhttp.send();
 }
 
